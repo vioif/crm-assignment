@@ -89,9 +89,10 @@ class CRM
     value = gets.chomp
 
     p Comtact.find_by(attribute,value)
-  end
+    end
 
   end
 
-
+  a_crm_app = CRM.new
+  a_crm_app.print_main_menu
 end
