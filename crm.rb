@@ -32,7 +32,7 @@ class CRM
     when 3 then delete_contact
     when 4 then display_all_contacts
     when 5 then search_by_attribute
-    when 6 then exit_program  
+    when 6 then exit_program
     # Finish off the rest for 3 through 6
     # To be clear, the methods add_new_contact and modify_existing_contact
     # haven't been implemented yet
@@ -40,13 +40,13 @@ class CRM
   end
 
   def add_new_contact
-    p 'Enter First Name: '
+    p 'Enter First Name:'
     first_name = gets.chomp
 
-    p 'Enter Last Name: '
+    p 'Enter Last Name:'
     last_name  = gets.chomp
 
-    p 'Enter Email Address: '
+    p 'Enter Email Address:'
     email      = gets,chomp
 
     p 'Enter a Note: '
@@ -58,18 +58,38 @@ class CRM
   end
 
   def modify_existing_contact
+    p "Which contact would you like to modify?"
+    id = gets.to_i
 
+    p "Wat would you like to modify?"
+    attribute = gets.chomp
+
+    p "Please enter new information"
+    new_info = gets.chomp
   end
 
   def delete_contact
+    p "Which contact would you like to delete"
+    id = gets.to_i
 
+    Contact.delete(id)
+
+    p "Your contact is now deleted!"
   end
 
   def display_all_contacts
-
+    p contact.all
   end
 
   def search_by_attribute
+    p 'Attribute'
+    attribute = gets.chomp
+
+    p "What is the #{attribute}?"
+    value = gets.chomp
+
+    p Comtact.find_by(attribute,value)
+  end
 
   end
 
